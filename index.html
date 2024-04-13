@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!-- Built by G. Thangella -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifespan Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #4caf50;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #fff;
+      color: #4caf50;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      transform-style: preserve-3d; /* Apply 3D transform */
+    }
+
+    button:hover {
+      background-color: #4caf50;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Main styles */
+    main {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transform-style: preserve-3d; /* Apply 3D transform */
+    }
+
+    /* Form styles */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: calc(100% - 10px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+      border-color: #4caf50;
+    }
+
+    /* Result styles */
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e9f5ec;
+      border: 1px solid #a3d9a5;
+      border-radius: 5px;
+      text-align: center;
+      color: #4caf50;
+      font-weight: bold;
+      transform-style: preserve-3d; /* Apply 3D transform */
+    }
+
+    /* Selected data styles */
+    .selected-data {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transform-style: preserve-3d; /* Apply 3D transform */
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      transform-style: preserve-3d; /* Apply 3D transform */
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Animation styles */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .warning-message {
+      animation: fade-in 2s forwards;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* Media queries */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lifespan Estimation</h1>
+    <p class="subtitle">Calculate your estimated lifespan based on various factors</p>
+    <button onclick="showNote()">Before Calculation, Read This</button>
+  </header>
+  <main>
+    <div class="container">
+      <form id="lifespanForm">
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="text" id="dob" name="dob" placeholder="Select Date of Birth" required>
+        </div>
+        <div class="form-group">
+          <label for="medical_condition">Medical Condition:</label>
+          <select id="medical_condition" name="medical_condition" required>
+            <option value="">Select Medical Condition</option>
+            <option value="good">Good</option>
+            <option value="bad">Bad</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="current_situation">Current Situation:</label>
+          <select id="current_situation" name="current_situation" required>
+            <option value="">Select Current Situation</option>
+            <option value="healthy">Healthy</option>
+            <option value="unhealthy">Unhealthy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <select id="location" name="location" required>
+            <option value="">Select Location</option>
+            <option value="rural">Rural</option>
+            <option value="urban">Urban</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="lifestyle_habits">Lifestyle Habits:</label>
+          <select id="lifestyle_habits" name="lifestyle_habits" multiple>
+            <option value="smoking">Smoking</option>
+            <option value="alcohol">Alcohol Consumption</option>
+            <option value="diet">Dietary Habits</option>
+            <option value="exercise">Exercise Routine</option>
+            <option value="stress">Stress Levels</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mental_health">Mental Health:</label>
+          <select id="mental_health" name="mental_health" required>
+            <option value="">Select Mental Health Status</option>
+            <option value="healthy">Healthy</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="depression">Depression</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sleep_patterns">Sleep Patterns:</label>
+          <select id="sleep_patterns" name="sleep_patterns" required>
+            <option value="">Select Sleep Pattern</option>
+            <option value="normal">Normal</option>
+            <option value="insomnia">Insomnia</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="environmental_factors">Environmental Factors:</label>
+          <select id="environmental_factors" name="environmental_factors" required>
+            <option value="">Select Environmental Factors</option>
+            <option value="air_quality">Air Quality</option>
+            <option value="pollution">Pollution Levels</option>
+            <option value="green_spaces">Access to Green Spaces</option>
+            <option value="natural_disasters">Exposure to Natural Disasters</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="social_relationships">Social Relationships:</label>
+          <select id="social_relationships" name="social_relationships" required>
+            <option value="">Select Social Relationship Status</option>
+            <option value="strong">Strong</option>
+            <option value="moderate">Moderate</option>
+            <option value="weak">Weak</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="access_healthcare">Access to Healthcare:</label>
+          <select id="access_healthcare" name="access_healthcare" required>
+            <option value="">Select Access to Healthcare</option>
+            <option value="regular_checkups">Regular Check-ups</option>
+            <option value="emergency_only">Emergency Only</option>
+            <option value="no_access">No Access</option>
+          </select>
+        </div>
+        <div class="estimation-options">
+          <label>
+            <input type="radio" id="user_estimation" name="estimation_type" value="user" onclick="showEstimationOptions()" checked>
+            Calculate based on my estimation
+          </label>
+          <label>
+            <input type="radio" id="system_estimation" name="estimation_type" value="system" onclick="showEstimationOptions()">
+            Calculate based on system estimation (100 years)
+          </label>
+        </div>
+        <div id="userEstimationInput">
+          <div class="form-group">
+            <label for="user_estimated_lifespan">Estimated Lifespan (years):</label>
+            <input type="number" id="user_estimated_lifespan" name="user_estimated_lifespan" required>
+          </div>
+        </div>
+        <button type="button" onclick="calculateLifespan()">Calculate Lifespan</button>
+      </form>
+      <div id="result" class="result"></div>
+      <div id="selectedData" class="selected-data"></div>
+ <!-- Download options -->
+      <div>
+        <button onclick="downloadResultsAsPDF()">Download as PDF</button>
+        <button onclick="downloadResultsAsWord()">Download as Word</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
+        <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
+  </footer>
+  <div id="noteModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeNote()">&times;</span>
+      <p>
+        This calculation is not applicable to individuals who engage in high-risk activities, activities that humans should avoid, and those who do not prioritize safe living, thereby increasing the risk of their lifespan being cut short due to their risky behaviors.
+        <br><br>
+        Instead, this calculation is based on individuals who lead their daily lives safely, considering both healthy and unhealthy situations, as well as favorable and unfavorable conditions in the environment they inhabit.
+      </p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    // Initialize flatpickr
+    flatpickr("#dob", {
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d",
+      scrollInput: true
+    });
+  </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+  <script>
+    // Function to show note modal
+    function showNote() {
+      var modal = document.getElementById("noteModal");
+      modal.style.display = "block";
+    }
+
+    // Function to close note modal
+    function closeNote() {
+      var modal = document.getElementById("noteModal");
+      modal.style.display = "none";
+    }
+
+    // Function to calculate the lifespan
+    function calculateLifespan() {
+      var dobInput = document.getElementById("dob");
+      var medicalConditionInput = document.getElementById("medical_condition");
+      var currentSituationInput = document.getElementById("current_situation");
+      var locationInput = document.getElementById("location");
+      var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
+      var estimationType = document.querySelector('input[name="estimation_type"]:checked').value;
+
+      // Get selected options from the form
+      var lifestyleHabits = Array.from(document.getElementById('lifestyle_habits').selectedOptions).map(option => option.value);
+      var mentalHealth = document.getElementById('mental_health').value;
+      var sleepPattern = document.getElementById('sleep_patterns').value;
+      var environmentalFactors = document.getElementById('environmental_factors').value;
+      var socialRelationships = document.getElementById('social_relationships').value;
+      var accessHealthcare = document.getElementById('access_healthcare').value;
+
+      // Check if any input field is empty
+      if (dobInput.value === "" || medicalConditionInput.value === "" || currentSituationInput.value === "" || locationInput.value === "") {
+        alert("Please fill in all input fields.");
+        return;
+      }
+
+      // All input fields are filled, proceed with calculation
+      var dateOfBirth = new Date(dobInput.value);
+      var medicalCondition = medicalConditionInput.value;
+      var currentSituation = currentSituationInput.value;
+      var location = locationInput.value;
+      var userEstimatedLifespan = parseInt(userEstimatedLifespanInput.value);
+
+      // Calculate age of the user
+      var today = new Date();
+      var age = today.getFullYear() - dateOfBirth.getFullYear();
+      var dobMonth = dateOfBirth.getMonth();
+      var todayMonth = today.getMonth();
+      if (todayMonth < dobMonth || (todayMonth === dobMonth && today.getDate() < dateOfBirth.getDate())) {
+        age--;
+      }
+
+      // Initialize remaining lifespan
+      var remainingYears;
+
+      // Calculate remaining lifespan based on selected conditions or system estimation
+      if (estimationType === "user") {
+        remainingYears = userEstimatedLifespan - age;
+      } else {
+        remainingYears = 100 - age;
+      }
+
+      // Adjust remaining lifespan based on selected conditions
+      if (medicalCondition.toLowerCase() === "bad") {
+        remainingYears -= 10; // Reduce remaining lifespan by 10 years for bad medical condition
+      }
+
+      if (currentSituation.toLowerCase() === "unhealthy") {
+        remainingYears -= 5; // Reduce remaining lifespan by 5 years for unhealthy current situation
+      }
+
+      if (location.toLowerCase() === "urban") {
+        remainingYears -= 10; // Reduce remaining lifespan by 10 years for urban location
+      } else if (location.toLowerCase() === "rural") {
+        remainingYears -= 5; // Reduce remaining lifespan by 5 years for rural location
+      }
+
+      // Adjust remaining lifespan based on lifestyle habits
+      if (lifestyleHabits.includes('smoking')) {
+        remainingYears -= 10; // Reduce by 10 years for smoking
+      }
+      if (lifestyleHabits.includes('alcohol')) {
+        remainingYears -= 5; // Reduce by 5 years for alcohol consumption
+      }
+      // Similar adjustments for other lifestyle habits...
+
+      // Adjust remaining lifespan based on mental health status
+      if (mentalHealth === 'anxiety' || mentalHealth === 'depression') {
+        remainingYears -= 10; // Reduce by 10 years for anxiety or depression
+      }
+      // Similar adjustments for other mental health statuses...
+
+      // Adjust remaining lifespan based on sleep pattern
+      if (sleepPattern === 'insomnia') {
+        remainingYears -= 8; // Reduce by 8 years for insomnia
+      }
+      // Similar adjustments for other sleep patterns...
+
+      // Adjust remaining lifespan based on environmental factors
+      if (environmentalFactors === 'pollution') {
+        remainingYears -= 7; // Reduce by 7 years for high pollution levels
+      }
+      // Similar adjustments for other environmental factors...
+
+      // Adjust remaining lifespan based on social relationships
+      if (socialRelationships === 'weak') {
+        remainingYears -= 5; // Reduce by 5 years for weak social relationships
+      }
+      // Similar adjustments for other social relationship statuses...
+
+      // Adjust remaining lifespan based on access to healthcare
+      if (accessHealthcare === 'emergency_only') {
+        remainingYears -= 12; // Reduce by 12 years for emergency-only healthcare access
+      } else if (accessHealthcare === 'no_access') {
+        remainingYears -= 20; // Reduce by 20 years for no access to healthcare
+      }
+      // Similar adjustments for other access to healthcare statuses...
+
+      // Output the estimated lifespan
+      var resultElement = document.getElementById("result");
+      var selectedDataElement = document.getElementById("selectedData");
+      if (remainingYears <= 40 && remainingYears >= 1) {
+        resultElement.innerHTML = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years." + '<p id="warningMessage" class="warning-message">I hope you’re taking care of yourself and staying safe!</p>';
+      } else if (remainingYears <= 0) {
+        resultElement.innerHTML = "You have already exceeded the estimated lifespan.";
+      } else if (remainingYears > 40) {
+        resultElement.innerHTML = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
+      }
+
+      // Output selected data
+      selectedDataElement.innerHTML = "<h2>Selected Data</h2>" +
+        "<p><strong>Date of Birth:</strong> " + dobInput.value + "</p>" +
+        "<p><strong>Medical Condition:</strong> " + medicalCondition + "</p>" +
+        "<p><strong>Current Situation:</strong> " + currentSituation + "</p>" +
+        "<p><strong>Location:</strong> " + location + "</p>" +
+        "<p><strong>Lifestyle Habits:</strong> " + lifestyleHabits.join(", ") + "</p>" +
+        "<p><strong>Mental Health:</strong> " + mentalHealth + "</p>" +
+        "<p><strong>Sleep Pattern:</strong> " + sleepPattern + "</p>" +
+        "<p><strong>Environmental Factors:</strong> " + environmentalFactors + "</p>" +
+        "<p><strong>Social Relationships:</strong> " + socialRelationships + "</p>" +
+        "<p><strong>Access to Healthcare:</strong> " + accessHealthcare + "</p>";
+    }
+
+    // Function to show estimation options based on radio button selection
+    function showEstimationOptions() {
+      var userEstimationInput = document.getElementById("userEstimationInput");
+      var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
+      var estimationType = document.querySelector('input[name="estimation_type"]:checked').value;
+
+      if (estimationType === "user") {
+        userEstimationInput.style.display = "block";
+        userEstimatedLifespanInput.required = true;
+      } else {
+        userEstimationInput.style.display = "none";
+        userEstimatedLifespanInput.required = false;
+      }
+    }
+ // Function to download results as PDF
+    function downloadResultsAsPDF() {
+      var resultText = document.getElementById("result").innerText;
+      var selectedDataText = document.getElementById("selectedData").innerText;
+
+      var doc = new jsPDF();
+      doc.text("Lifespan Estimation Result", 10, 10);
+      doc.setFontSize(12);
+      doc.text(resultText, 10, 20);
+      doc.text(selectedDataText, 10, 40);
+
+      doc.save("lifespan_estimation_result.pdf");
+    }
+
+    // Function to download results as Word
+    function downloadResultsAsWord() {
+      var resultText = document.getElementById("result").innerText;
+      var selectedDataText = document.getElementById("selectedData").innerText;
+
+      var blob = new Blob([resultText + "\n\n" + selectedDataText], { type: "text/plain;charset=utf-8" });
+      saveAs(blob, "lifespan_estimation_result.doc");
+    }
+  </script>
+</body>
+</html>
