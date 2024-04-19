@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lifespan Calculator</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Reset CSS */
     * {
@@ -17,13 +18,13 @@
     /* Body styles */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: #EDF4F2;
       color: #333;
     }
 
     /* Header styles */
     header {
-      background-color: #4caf50;
+      background-color: #31473A;
       padding: 20px 0;
       text-align: center;
     }
@@ -47,14 +48,14 @@
       padding: 10px 20px;
       cursor: pointer;
       border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-      transform-style: preserve-3d; /* Apply 3D transform */
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
     }
 
     button:hover {
       background-color: #4caf50;
       color: #fff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
     }
 
     /* Main styles */
@@ -169,11 +170,15 @@
 
     .warning-message {
       animation: fade-in 2s forwards;
+      color: #f44336;
+      font-size: 16px;
+      margin-top: 10px;
+      transform: translateY(-20px);
     }
 
     /* Footer styles */
     footer {
-      background-color: #4caf50;
+      background-color: #31473A;
       color: #fff;
       padding: 20px 0;
       text-align: center;
@@ -200,7 +205,7 @@
 <body>
   <header>
     <h1>Lifespan Estimation</h1>
-    <p class="subtitle">Calculate your estimated lifespan based on various factors</p>
+    <p class="subtitle">Calculate your estimated lifespan based on various factors <i class="fas fa-info-circle" onclick="showNote()"></i></p>
     <button onclick="showNote()">Before Calculation, Read This</button>
   </header>
   <main>
@@ -318,9 +323,10 @@
       </div>
     </div>
   </main>
+
   <footer>
     <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
-        <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
+    <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
   </footer>
   <div id="noteModal" class="modal">
     <div class="modal-content">
@@ -330,13 +336,12 @@
         <br><br>
         Instead, this calculation is based on individuals who lead their daily lives safely, considering both healthy and unhealthy situations, as well as favorable and unfavorable conditions in the environment they inhabit.
       </p>
-<br>
-      "Don't take this estimation seriously; it's just a calculation meant to raise awareness about health for people. Remember, health statistics can vary widely and should be interpreted with caution. The goal here is to spark conversations and encourage proactive health behaviors among individuals and communities
+      <p>
+        "Don't take this estimation seriously; it's just a calculation meant to raise awareness about health for people. Remember, health statistics can vary widely and should be interpreted with caution. The goal here is to spark conversations and encourage proactive health behaviors among individuals and communities
       </p>
-
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
     // Initialize flatpickr
     flatpickr("#dob", {
@@ -346,8 +351,9 @@
       scrollInput: true
     });
   </script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
   <script>
     // Function to show note modal
     function showNote() {
@@ -467,18 +473,27 @@
       // Similar adjustments for other access to healthcare statuses...
 
       // Output the estimated lifespan
-      var resultElement = document.getElementById("result");
-      var selectedDataElement = document.getElementById("selectedData");
-      if (remainingYears <= 40 && remainingYears >= 1) {
-        resultElement.innerHTML = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years." + '<p id="warningMessage" class="warning-message">I hope you’re taking care of yourself and staying safe!</p>';
-      } else if (remainingYears <= 0) {
-        resultElement.innerHTML = "You have already exceeded the estimated lifespan.";
-      } else if (remainingYears > 40) {
-        resultElement.innerHTML = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
-      }
+    var resultElement = document.getElementById("result");
+    var selectedDataElement = document.getElementById("selectedData");
+    var resultText;
+    if (remainingYears <= 40 && remainingYears >= 1) {
+        resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
+        resultElement.innerHTML = resultText + '<p id="warningMessage" class="warning-message">I hope you’re taking care of yourself and staying safe!</p>';
+    } else if (remainingYears <= 0) {
+        resultText = "You have already exceeded the estimated lifespan.";
+        resultElement.innerHTML = resultText;
+    } else if (remainingYears > 40) {
+        resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
+        resultElement.innerHTML = resultText;
+    }
 
-      // Output selected data
-      selectedDataElement.innerHTML = "<h2>Selected Data</h2>" +
+    // Create a new <p> element for the estimated lifespan and append it to selected data info
+    var estimatedLifespanElement = document.createElement("p");
+    estimatedLifespanElement.innerHTML = "<strong>Estimated Lifespan:</strong> " + resultText;
+    selectedDataElement.appendChild(estimatedLifespanElement);
+
+    // Output selected data
+    selectedDataElement.innerHTML = "<h2>Selected Data</h2>" +
         "<p><strong>Date of Birth:</strong> " + dobInput.value + "</p>" +
         "<p><strong>Medical Condition:</strong> " + medicalCondition + "</p>" +
         "<p><strong>Current Situation:</strong> " + currentSituation + "</p>" +
@@ -489,7 +504,8 @@
         "<p><strong>Environmental Factors:</strong> " + environmentalFactors + "</p>" +
         "<p><strong>Social Relationships:</strong> " + socialRelationships + "</p>" +
         "<p><strong>Access to Healthcare:</strong> " + accessHealthcare + "</p>";
-    }
+
+}
 
     // Function to show estimation options based on radio button selection
     function showEstimationOptions() {
@@ -505,28 +521,63 @@
         userEstimatedLifespanInput.required = false;
       }
     }
- // Function to download results as PDF
-    function downloadResultsAsPDF() {
-      var resultText = document.getElementById("result").innerText;
-      var selectedDataText = document.getElementById("selectedData").innerText;
+// Function to download results as PDF
+function downloadResultsAsPDF() {
+  var resultText = document.getElementById("result").innerText;
+  var selectedDataText = document.getElementById("selectedData").innerText;
 
-      var doc = new jsPDF();
-      doc.text("Lifespan Estimation Result", 10, 10);
-      doc.setFontSize(12);
-      doc.text(resultText, 10, 20);
-      doc.text(selectedDataText, 10, 40);
+  var pdfContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
 
-      doc.save("lifespan_estimation_result.pdf");
-    }
+  // Create a Blob containing the PDF content
+  var blob = new Blob([pdfContent], { type: "application/pdf;charset=utf-8" });
 
-    // Function to download results as Word
-    function downloadResultsAsWord() {
-      var resultText = document.getElementById("result").innerText;
-      var selectedDataText = document.getElementById("selectedData").innerText;
+  // Create a URL for the Blob
+  var url = window.URL.createObjectURL(blob);
 
-      var blob = new Blob([resultText + "\n\n" + selectedDataText], { type: "text/plain;charset=utf-8" });
-      saveAs(blob, "lifespan_estimation_result.doc");
-    }
+  // Create an anchor element
+  var a = document.createElement("a");
+
+  // Set the download attribute and href attribute
+  a.download = "lifespan_estimation_result.pdf";
+  a.href = url;
+
+  // Programmatically click on the anchor element to trigger the download
+  a.click();
+
+  // Release the Blob URL after it's no longer needed
+  window.URL.revokeObjectURL(url);
+}
+
+// Function to download results as Word
+function downloadResultsAsWord() {
+  var resultText = document.getElementById("result").innerText;
+  var selectedDataText = document.getElementById("selectedData").innerText;
+
+  var wordContent = "\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+
+var wordContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+
+  // Create a Blob containing the Word content
+  var blob = new Blob([wordContent], { type: "text/plain;charset=utf-8" });
+
+  // Create a URL for the Blob
+  var url = window.URL.createObjectURL(blob);
+
+  // Create an anchor element
+  var a = document.createElement("a");
+
+  // Set the download attribute and href attribute
+  a.download = "lifespan_estimation_result.doc";
+  a.href = url;
+
+  // Programmatically click on the anchor element to trigger the download
+  a.click();
+
+  // Release the Blob URL after it's no longer needed
+  window.URL.revokeObjectURL(url);
+}
+
   </script>
+
 </body>
 </html>
