@@ -1,7 +1,5 @@
 # Lifespan Calculator
 
-![Lifespan Calculator](demo.png)
-
 Calculate your estimated lifespan based on various factors.
 
 
