@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Built by G. Thangella -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,43 +16,46 @@
 
     /* Body styles */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #EDF4F2;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
       color: #333;
+      line-height: 1.6;
     }
 
     /* Header styles */
     header {
-      background-color: #31473A;
-      padding: 20px 0;
+      background: linear-gradient(102.2deg, rgb(109, 118, 150) 7.1%, rgb(89, 72, 79) 14.7%, rgb(69, 92, 79) 28%, rgb(204, 85, 67) 43.4%, rgb(237, 181, 121) 60.2%, rgb(219, 230, 175) 76.8%);
+      color: #fff;
       text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
     }
 
     h1 {
-      color: #fff;
-      font-size: 24px;
+      font-weight: 700;
       margin-bottom: 10px;
     }
 
     .subtitle {
-      color: #fff;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 300;
       margin-bottom: 20px;
     }
 
     button {
-      background-color: #fff;
-      color: #4caf50;
+     background:#2c2d34;
+      color: #fff;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 10px;
       transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      font-size: 17wpx;
+      font-weight: 200;
     }
 
     button:hover {
-      background-color: #4caf50;
-      color: #fff;
+      background-color: #060608;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transform: translateY(-2px);
     }
@@ -67,59 +69,53 @@
       max-width: 800px;
       margin: 0 auto;
       background-color: #fff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      transform-style: preserve-3d; /* Apply 3D transform */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Form styles */
-    .form-group {
-      margin-bottom: 20px;
-    }
-
     label {
-      font-weight: bold;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
     }
 
-    input[type="text"],
-    input[type="number"],
-    select {
+    input, select {
       width: calc(100% - 10px);
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      box-sizing: border-box;
       transition: border-color 0.3s;
+      margin-bottom: 20px;
     }
 
-    input[type="text"]:focus,
-    input[type="number"]:focus,
-    select:focus {
-      border-color: #4caf50;
+    input:focus, select:focus {
+      border-color: #28a745;
     }
 
     /* Result styles */
     .result {
       margin-top: 20px;
-      padding: 10px;
-      background-color: #e9f5ec;
-      border: 1px solid #a3d9a5;
+      padding: 20px;
+     background: linear-gradient(to right, #243949 0%, #517fa4 100%);
+      color: #fff;
       border-radius: 5px;
       text-align: center;
-      color: #4caf50;
-      font-weight: bold;
-      transform-style: preserve-3d; /* Apply 3D transform */
+      font-size: 18px;
+      font-weight: 500;
     }
 
     /* Selected data styles */
     .selected-data {
       margin-top: 20px;
-      padding: 10px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
+      padding: 20px;
+      background: radial-gradient(circle at 10% 20%, rgb(87, 108, 117) 0%, rgb(37, 50, 55) 100.2%);
+      color: #fff;
       border-radius: 5px;
-      transform-style: preserve-3d; /* Apply 3D transform */
+text-align: center;
+border: 2px inset #121212;
+border-radius: 6px;
     }
 
     /* Modal styles */
@@ -141,7 +137,9 @@
       padding: 20px;
       border: 1px solid #888;
       width: 80%;
-      transform-style: preserve-3d; /* Apply 3D transform */
+      border-radius: 5px;
+border: 2px inset #d84205;
+border-radius: 6px;
     }
 
     .close {
@@ -149,36 +147,30 @@
       float: right;
       font-size: 28px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .close:hover,
     .close:focus {
       color: black;
-      text-decoration: none;
-      cursor: pointer;
     }
 
     /* Animation styles */
     @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .warning-message {
       animation: fade-in 2s forwards;
-      color: #f44336;
+      color: #dc3545;
       font-size: 16px;
       margin-top: 10px;
-      transform: translateY(-20px);
     }
 
     /* Footer styles */
     footer {
-      background-color: #31473A;
+     background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);
       color: #fff;
       padding: 20px 0;
       text-align: center;
@@ -190,33 +182,267 @@
 
     /* Media queries */
     @media (max-width: 600px) {
-      .container {
-        padding: 10px;
-      }
+      .container { padding: 10px; }
+      input, select { width: 100%; }
+    }
 
-      input[type="text"],
-      input[type="number"],
-      select {
-        width: 100%;
+    /* Icon Animation */
+    .icon-animate {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+#selectedPhoto {
+    margin-bottom: 20px;
+}
+
+#photo {
+    display: block;
+    margin-top: 5px;
+}
+
+#previewPhoto {
+    display: none;
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+}
+/* Loading animation */
+#loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loading-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.loading-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #3f51b5;
+  border-color: #3f51b5 transparent #3f51b5 transparent;
+  animation: loading-ring 1.2s linear infinite;
+}
+
+@keyframes loading-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.estimation-options {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.estimation-options label {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.download-options {
+  text-align: right;
+  margin-top: 10px; /* Add margin to the top */
+}
+
+.download-options button {
+  margin-left: 10px;
+}
+
+.category-container {
+  margin-bottom: 20px; /* Add margin between category containers */
+}
+
+.category-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card h2 {
+  margin-top: 0;
+}
+
+/* Customize styles for each category card */
+#personalInfoCard {
+  /* Add specific styles for personal info card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+
+#healthInfoCard {
+  /* Add specific styles for health info card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+
+#lifestyleCard {
+  /* Add specific styles for lifestyle card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+#ActivityRelatedCard {
+  /* Add specific styles for health info card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+
+#FoodRelatedCard {
+  /* Add specific styles for lifestyle card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+#BadHabitsCardCard {
+  /* Add specific styles for lifestyle card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 2px inset #121212;
+border-radius: 6px;
+}
+#calculationCard{
+  /* Add specific styles for lifestyle card */
+box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.3);
+border: 3px ridge #05ae3d;
+border-radius: 6px;
+}
+@media screen and (max-width: 600px) {
+  .download-options button {
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
+}
+.result {
+    display: none;
+    /* Add styling for displaying the result */
+}
+.loading-wave {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .loading-wave div {
+      position: absolute;
+      border: 4px solid #4cb8c4;
+      opacity: 1;
+      border-radius: 50%;
+      animation: loading-wave 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+    .loading-wave div:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+    @keyframes loading-wave {
+      0% {
+        top: 36px;
+        left: 36px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        top: 0;
+        left: 0;
+        width: 72px;
+        height: 72px;
+        opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lifespan Estimation</h1>
-    <p class="subtitle">Calculate your estimated lifespan based on various factors <i class="fas fa-info-circle" onclick="showNote()"></i></p>
-    <button onclick="showNote()">Before Calculation, Read This</button>
-  </header>
-  <main>
-    <div class="container">
-      <form id="lifespanForm">
+<header>
+  <h1>Lifespan Estimation</h1>
+  <p class="subtitle">Calculate your estimated lifespan based on various factors <i class="fas fa-info-circle icon-animate"></i></p>
+  <button onclick="showNote()">Before Calculation, Read This</button>
+</header>
+<!-- Loading animation -->
+<div id="loading-container">
+  <div class="loading-ring"></div>
+  <p>Loading...</p>
+</div>
+<main>
+  <div id="main-content" style="display: none;">
+    <div class="category-container">
+      <div class="category-card" id="personalInfoCard">
+        <form id="lifespanForm" onsubmit="return false;">
+          <!-- Personal Details Section -->
+          <h2><i class="fas fa-user"></i> Personal Details</h2>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br><br>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" pattern="[0-9]{10}" required><br><br>
+
+            <label for="email">Gmail:</label>
+            <input type="email" id="email" required><br><br>
+
+            <div id="selectedPhoto">
+              <label for="photo">Select Your Photo:</label>
+              <input type="file" id="photo" accept="image/*">
+              <img id="previewPhoto" src="#" alt="Selected Photo">
+            </div>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="text" id="dob" name="dob" placeholder="Select Date of Birth" required>
+          </div>
+          <!-- Add icons for each condition -->
+
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+              <option value="">Select Location</option>
+              <option value="rural">Rural</option>
+              <option value="urban">Urban</option>
+            </select>
+          </div>
+      </div>
+    </div>
+
+    <!-- Health Related Section -->
+    <div class="category-container">
+      <div class="category-card" id="healthInfoCard">
+        <h2><i class="fas fa-heartbeat"></i> Health Related</h2>
         <div class="form-group">
-          <label for="dob">Date of Birth:</label>
-          <input type="text" id="dob" name="dob" placeholder="Select Date of Birth" required>
-        </div>
-        <div class="form-group">
-          <label for="medical_condition">Medical Condition:</label>
+          <label for="medical_condition">Medical Condition <i class="fas fa-heartbeat icon-animate"></i>:</label>
           <select id="medical_condition" name="medical_condition" required>
             <option value="">Select Medical Condition</option>
             <option value="good">Good</option>
@@ -224,21 +450,19 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="current_situation">Current Situation:</label>
+          <label for="current_situation">Current Situation <i class="fas fa-hospital icon-animate"></i>:</label>
           <select id="current_situation" name="current_situation" required>
             <option value="">Select Current Situation</option>
             <option value="healthy">Healthy</option>
             <option value="unhealthy">Unhealthy</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="location">Location:</label>
-          <select id="location" name="location" required>
-            <option value="">Select Location</option>
-            <option value="rural">Rural</option>
-            <option value="urban">Urban</option>
-          </select>
-        </div>
+      </div>
+    </div>
+
+    <div class="category-container">
+      <div class="category-card" id="lifestyleCard">
+        <h2><i class="fas fa-dumbbell"></i> Lifestyle</h2>
         <div class="form-group">
           <label for="lifestyle_habits">Lifestyle Habits:</label>
           <select id="lifestyle_habits" name="lifestyle_habits" multiple>
@@ -296,288 +520,775 @@
             <option value="no_access">No Access</option>
           </select>
         </div>
-        <div class="estimation-options">
-          <label>
-            <input type="radio" id="user_estimation" name="estimation_type" value="user" onclick="showEstimationOptions()" checked>
-            Calculate based on my estimation
-          </label>
-          <label>
-            <input type="radio" id="system_estimation" name="estimation_type" value="system" onclick="showEstimationOptions()">
-            Calculate based on system estimation (100 years)
-          </label>
-        </div>
-        <div id="userEstimationInput">
-          <div class="form-group">
-            <label for="user_estimated_lifespan">Estimated Lifespan (years):</label>
-            <input type="number" id="user_estimated_lifespan" name="user_estimated_lifespan" required>
-          </div>
-        </div>
-        <button type="button" onclick="calculateLifespan()">Calculate Lifespan</button>
-      </form>
-      <div id="result" class="result"></div>
-      <div id="selectedData" class="selected-data"></div>
- <!-- Download options -->
-      <div>
-        <button onclick="downloadResultsAsPDF()">Download as PDF</button>
-        <button onclick="downloadResultsAsWord()">Download as Word</button>
       </div>
     </div>
-  </main>
 
-  <footer>
-    <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
-    <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
-  </footer>
-  <div id="noteModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeNote()">&times;</span>
-      <p>
-        This calculation is not applicable to individuals who engage in high-risk activities, activities that humans should avoid, and those who do not prioritize safe living, thereby increasing the risk of their lifespan being cut short due to their risky behaviors.
-        <br><br>
-        Instead, this calculation is based on individuals who lead their daily lives safely, considering both healthy and unhealthy situations, as well as favorable and unfavorable conditions in the environment they inhabit.
-      </p>
-      <p>
-        "Don't take this estimation seriously; it's just a calculation meant to raise awareness about health for people. Remember, health statistics can vary widely and should be interpreted with caution. The goal here is to spark conversations and encourage proactive health behaviors among individuals and communities
-      </p>
+    <!-- Activity Related Section -->
+    <div class="category-container">
+      <div class="category-card" id="ActivityRelatedCard">
+        <h2><i class="fas fa-walking"></i>Activity Related</h2>
+        <div class="form-group">
+          <label for="exercise_frequency">Exercise Frequency:</label>
+          <select id="exercise_frequency" name="exercise_frequency" required>
+            <option value="">Select Exercise Frequency</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="rarely">Rarely</option>
+            <option value="never">Never</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="stress_management">Stress Management Techniques:</label>
+          <select id="stress_management" name="stress_management" required>
+            <option value="">Select Stress Management Techniques</option>
+            <option value="meditation">Meditation</option>
+            <option value="yoga">Yoga</option>
+            <option value="exercise">Exercise</option>
+            <option value="therapy">Therapy</option>
+            <option value="hobbies">Hobbies</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hydration_level">Hydration Level:</label>
+          <select id="hydration_level" name="hydration_level" required>
+            <option value="">Select Hydration Level</option>
+            <option value="very_low">Very Low</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+            <option value="very_high">Very High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sun_exposure">Sun Exposure:</label>
+          <select id="sun_exposure" name="sun_exposure" required>
+            <option value="">Select Sun Exposure</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
     </div>
+
+
+    <!-- Food Related Section -->
+    <div class="category-container">
+      <div class="category-card" id="FoodRelatedCard">
+        <h2><i class="fas fa-utensils"></i> Food Related</h2>
+        <div class="form-group">
+          <label for="diet_type">Diet Type:</label>
+          <select id="diet_type" name="diet_type" required>
+            <option value="">Select Diet Type</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="pescatarian">Pescatarian</option>
+            <option value="flexitarian">Flexitarian</option>
+            <option value="keto">Keto</option>
+            <option value="paleo">Paleo</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="low_carb">Low Carb</option>
+            <option value="low_fat">Low Fat</option>
+            <option value="balanced">Balanced</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bad Habits Section -->
+    <div class="category-container">
+      <div class="category-card" id="BadHabitsCardCard">
+        <h2><i class="fas fa-exclamation-triangle"></i> Bad Habits</h2>
+        <div class="form-group">
+          <label for="alcohol_consumption">Alcohol Consumption:</label>
+          <select id="alcohol_consumption" name="alcohol_consumption" required>
+            <option value="">Select Alcohol Consumption</option>
+            <option value="none">None</option>
+            <option value="occasional">Occasional</option>
+            <option value="moderate">Moderate</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="screen_time">Screen Time (Hours per day):</label>
+          <select id="screen_time" name="screen_time" required>
+            <option value="">Select Screen Time</option>
+            <option value="0-1">0-1</option>
+            <option value="1-2">1-2</option>
+            <option value="2-4">2-4</option>
+            <option value="4-6">4-6</option>
+            <option value="6+">6+</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="category-container">
+      <div class="category-card" id="calculationCard">
+        <h2><i class="fas fa-calculator"></i> Based On Selected And Given Info Calculate Lifespan Estimation Here</h2>
+        <form id="lifespanForm">
+          <div class="estimation-options">
+            <label>
+              <input type="radio" id="user_estimation" name="estimation_type" value="user" onclick="showEstimationOptions()" checked>
+              Calculate based on my estimation
+            </label>
+            <label>
+              <input type="radio" id="system_estimation" name="estimation_type" value="system" onclick="showEstimationOptions()">
+              Calculate based on system estimation (100 years)
+            </label>
+          </div>
+          <div id="userEstimationInput">
+            <div class="form-group">
+              <label for="user_estimated_lifespan">Estimated Lifespan (years):</label>
+              <input type="number" id="user_estimated_lifespan" name="user_estimated_lifespan" required>
+            </div>
+          </div>
+          <button type="button" onclick="calculateLifespan()">Calculate Lifespan</button>
+          <div id="loadingAnimation" class="loading-animation"></div>
+          <div id="result" class="result"></div>
+
+        </form>
+
+        <!-- Result element -->
+        <div id="result" class="result" style="display: none;"></div>
+        <div id="selectedData" class="selected-data" style="display: none;"></div>
+
+
+        <!-- Download options -->
+        <div id="downloadOptions" style="display: none;" class="download-options">
+          <button type="button" onclick="downloadResultsAsPDF()">
+            <i class="fas fa-download icon-animate"></i> Download as PDF
+          </button>
+          <button type="button" onclick="downloadResultsAsWord()">
+            <i class="fas fa-download icon-animate"></i> Download as Word
+          </button>
+          <button type="button" onclick="sendDetailsByEmail()">
+            Send Details to Email
+          </button>
+
+          <!-- Buttons for sending via WhatsApp -->
+          <button type="button" onclick="sendToSavedContact()">
+            <i class="fab fa-whatsapp"></i> Send to Saved Contact
+          </button>
+          <button type="button" onclick="sendToNewContact()">
+            <i class="fab fa-whatsapp"></i> Send to New Contact
+          </button>
+
+          <button type="button" onclick="sendViaInstagram()">
+            <i class="fab fa-instagram"></i> Send via Instagram
+          </button>
+          <button type="button" onclick="copyText()">
+            <i class="far fa-copy"></i> Copy Text
+          </button>
+          <button onclick="takeScreenshot()">Take Screenshot</button>
+        </div>
+      </div>
+</main>
+
+<footer>
+  <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
+  <p>This website is protected by copyright law. Unauthorized use or modification is prohibited.</p>
+</footer>
+
+<div id="noteModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeNote()">&times;</span>
+    <p>
+      This calculation is not applicable to individuals who engage in high-risk activities, activities that humans should avoid, and those who do not prioritize safe living, thereby increasing the risk of their lifespan being cut short due to their risky behaviors.
+      <br><br>
+      Instead, this calculation is based on individuals who lead their daily lives safely, considering both healthy and unhealthy situations, as well as favorable and unfavorable conditions in the environment they inhabit.
+    </p>
+    <p>
+      "Don't take this estimation seriously; it's just a calculation meant to raise awareness about health for people. Remember, health statistics can vary widely and should be interpreted with caution. The goal here is to spark conversations and encourage proactive health behaviors among individuals and communities
+    </p>
   </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script>
-    // Initialize flatpickr
-    flatpickr("#dob", {
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d",
-      scrollInput: true
-    });
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script>
+  // Initialize flatpickr
+  flatpickr("#dob", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+    scrollInput: true
+  });
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-  <script>
-    // Function to show note modal
-    function showNote() {
-      var modal = document.getElementById("noteModal");
-      modal.style.display = "block";
-    }
+  // Function to show note modal
+  function showNote() {
+    var modal = document.getElementById("noteModal");
+    modal.style.display = "block";
+  }
 
-    // Function to close note modal
-    function closeNote() {
-      var modal = document.getElementById("noteModal");
-      modal.style.display = "none";
-    }
+  // Function to close note modal
+  function closeNote() {
+    var modal = document.getElementById("noteModal");
+    modal.style.display = "none";
+  }
 
-    // Function to calculate the lifespan
-    function calculateLifespan() {
-      var dobInput = document.getElementById("dob");
-      var medicalConditionInput = document.getElementById("medical_condition");
-      var currentSituationInput = document.getElementById("current_situation");
-      var locationInput = document.getElementById("location");
-      var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
-      var estimationType = document.querySelector('input[name="estimation_type"]:checked').value;
+  // Function to calculate the lifespan
+ function calculateLifespan() {
+    // Validate name, mobile number, and email
+    var name = document.getElementById('name').value;
+ var gender = document.getElementById('gender').value;
+    var mobile = document.getElementById('mobile').value;
+    var email = document.getElementById('email').value;
 
-      // Get selected options from the form
-      var lifestyleHabits = Array.from(document.getElementById('lifestyle_habits').selectedOptions).map(option => option.value);
-      var mentalHealth = document.getElementById('mental_health').value;
-      var sleepPattern = document.getElementById('sleep_patterns').value;
-      var environmentalFactors = document.getElementById('environmental_factors').value;
-      var socialRelationships = document.getElementById('social_relationships').value;
-      var accessHealthcare = document.getElementById('access_healthcare').value;
-
-      // Check if any input field is empty
-      if (dobInput.value === "" || medicalConditionInput.value === "" || currentSituationInput.value === "" || locationInput.value === "") {
-        alert("Please fill in all input fields.");
+    if (!validateName(name) || !validateMobile(mobile) || !validateEmail(email)) {
+        alert("Please provide valid name, mobile number, and Gmail address.");
         return;
-      }
+    }
 
-      // All input fields are filled, proceed with calculation
-      var dateOfBirth = new Date(dobInput.value);
-      var medicalCondition = medicalConditionInput.value;
-      var currentSituation = currentSituationInput.value;
-      var location = locationInput.value;
-      var userEstimatedLifespan = parseInt(userEstimatedLifespanInput.value);
+    // Check if photo is selected
+    var photo = document.getElementById('photo').files[0];
+    var photoName = "";
+    var photoUrl = ""; // For displaying in selected data details
+    var photoBase64 = ""; // For embedding in Word/PDF and attaching to email
+    if (photo) {
+        photoName = photo.name;
+        photoUrl = URL.createObjectURL(photo);
+        // Convert photo to Base64 format
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            photoBase64 = reader.result;
+        };
+        reader.readAsDataURL(photo);
+    }
 
-      // Calculate age of the user
-      var today = new Date();
-      var age = today.getFullYear() - dateOfBirth.getFullYear();
-      var dobMonth = dateOfBirth.getMonth();
-      var todayMonth = today.getMonth();
-      if (todayMonth < dobMonth || (todayMonth === dobMonth && today.getDate() < dateOfBirth.getDate())) {
-        age--;
-      }
+    // Other input variables
+    var dobInput = document.getElementById("dob");
+    var medicalConditionInput = document.getElementById("medical_condition");
+    var currentSituationInput = document.getElementById("current_situation");
+    var locationInput = document.getElementById("location");
+    var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
+    var estimationType = document.querySelector('input[name="estimation_type"]:checked')?.value;
 
-      // Initialize remaining lifespan
-      var remainingYears;
+    // Get selected options from the form
+    var lifestyleHabits = Array.from(document.getElementById('lifestyle_habits').selectedOptions).map(option => option.value);
+    var mentalHealth = document.getElementById('mental_health').value;
+    var sleepPattern = document.getElementById('sleep_patterns').value;
+    var environmentalFactors = document.getElementById('environmental_factors').value;
+    var socialRelationships = document.getElementById('social_relationships').value;
+    var accessHealthcare = document.getElementById('access_healthcare').value;
 
-      // Calculate remaining lifespan based on selected conditions or system estimation
-      if (estimationType === "user") {
-        remainingYears = userEstimatedLifespan - age;
-      } else {
-        remainingYears = 100 - age;
-      }
+    // Get values of additional health factors
+    var dietType = document.getElementById('diet_type').value;
+    var alcoholConsumption = document.getElementById('alcohol_consumption').value;
+    var hydrationLevel = document.getElementById('hydration_level').value;
+    var sunExposure = document.getElementById('sun_exposure').value;
+    var screenTime = document.getElementById('screen_time').value;
+    var exerciseFrequency = document.getElementById('exercise_frequency').value;
+    var stressManagement = document.getElementById('stress_management').value;
 
-      // Adjust remaining lifespan based on selected conditions
-      if (medicalCondition.toLowerCase() === "bad") {
-        remainingYears -= 10; // Reduce remaining lifespan by 10 years for bad medical condition
-      }
+ if (!validateName(name) || !validateMobile(mobile) || !validateEmail(email)) {
+                alert("Please provide valid name, mobile number, and Gmail address.");
+                return;
+            }
 
-      if (currentSituation.toLowerCase() === "unhealthy") {
-        remainingYears -= 5; // Reduce remaining lifespan by 5 years for unhealthy current situation
-      }
+    // Check if any input field is empty
+    if (dobInput.value === "" || medicalConditionInput.value === "" || currentSituationInput.value === "" || locationInput.value === "" || dietType === "" || alcoholConsumption === "" || hydrationLevel === "" || sunExposure === "" || screenTime === "" || exerciseFrequency === "" || stressManagement === "") {
+      alert("Please fill in all input fields.");
+      return;
+    }
 
-      if (location.toLowerCase() === "urban") {
-        remainingYears -= 10; // Reduce remaining lifespan by 10 years for urban location
-      } else if (location.toLowerCase() === "rural") {
-        remainingYears -= 5; // Reduce remaining lifespan by 5 years for rural location
-      }
+    // All input fields are filled, proceed with calculation
+    var dateOfBirth = new Date(dobInput.value);
+    var medicalCondition = medicalConditionInput.value;
+    var currentSituation = currentSituationInput.value;
+    var location = locationInput.value;
+    var userEstimatedLifespan = parseInt(userEstimatedLifespanInput.value);
 
-      // Adjust remaining lifespan based on lifestyle habits
-      if (lifestyleHabits.includes('smoking')) {
-        remainingYears -= 10; // Reduce by 10 years for smoking
-      }
-      if (lifestyleHabits.includes('alcohol')) {
-        remainingYears -= 5; // Reduce by 5 years for alcohol consumption
-      }
-      // Similar adjustments for other lifestyle habits...
+    // Calculate age of the user
+    var today = new Date();
+    var age = today.getFullYear() - dateOfBirth.getFullYear();
+    var dobMonth = dateOfBirth.getMonth();
+    var todayMonth = today.getMonth();
+    if (todayMonth < dobMonth || (todayMonth === dobMonth && today.getDate() < dateOfBirth.getDate())) {
+      age--;
+    }
 
-      // Adjust remaining lifespan based on mental health status
-      if (mentalHealth === 'anxiety' || mentalHealth === 'depression') {
-        remainingYears -= 10; // Reduce by 10 years for anxiety or depression
-      }
-      // Similar adjustments for other mental health statuses...
+    // Initialize remaining lifespan
+    var remainingYears;
 
-      // Adjust remaining lifespan based on sleep pattern
-      if (sleepPattern === 'insomnia') {
-        remainingYears -= 8; // Reduce by 8 years for insomnia
-      }
-      // Similar adjustments for other sleep patterns...
+    // Calculate remaining lifespan based on selected conditions or system estimation
+    if (estimationType === "user") {
+      remainingYears = userEstimatedLifespan - age;
+    } else {
+      remainingYears = 100 - age;
+    }
 
-      // Adjust remaining lifespan based on environmental factors
-      if (environmentalFactors === 'pollution') {
-        remainingYears -= 7; // Reduce by 7 years for high pollution levels
-      }
-      // Similar adjustments for other environmental factors...
+    // Adjust remaining lifespan based on selected conditions
+    if (medicalCondition.toLowerCase() === "bad") {
+      remainingYears -= 10; // Reduce remaining lifespan by 10 years for bad medical condition
+    }
 
-      // Adjust remaining lifespan based on social relationships
-      if (socialRelationships === 'weak') {
-        remainingYears -= 5; // Reduce by 5 years for weak social relationships
-      }
-      // Similar adjustments for other social relationship statuses...
+    if (currentSituation.toLowerCase() === "unhealthy") {
+      remainingYears -= 5; // Reduce remaining lifespan by 5 years for unhealthy current situation
+    }
 
-      // Adjust remaining lifespan based on access to healthcare
-      if (accessHealthcare === 'emergency_only') {
-        remainingYears -= 12; // Reduce by 12 years for emergency-only healthcare access
-      } else if (accessHealthcare === 'no_access') {
-        remainingYears -= 20; // Reduce by 20 years for no access to healthcare
-      }
-      // Similar adjustments for other access to healthcare statuses...
+    if (location.toLowerCase() === "urban") {
+      remainingYears -= 10; // Reduce remaining lifespan by 10 years for urban location
+    } else if (location.toLowerCase() === "rural") {
+      remainingYears -= 5; // Reduce remaining lifespan by 5 years for rural location
+    }
 
-      // Output the estimated lifespan
+    // Adjust remaining lifespan based on lifestyle habits
+    if (lifestyleHabits.includes('smoking')) {
+      remainingYears -= 10; // Reduce by 10 years for smoking
+    }
+    if (lifestyleHabits.includes('alcohol')) {
+      remainingYears -= 5; // Reduce by 5 years for alcohol consumption
+    }
+    if (lifestyleHabits.includes('diet')) {
+      remainingYears -= 5; // Reduce by 5 years for poor diet
+    }
+    if (lifestyleHabits.includes('exercise')) {
+      remainingYears += 5; // Increase by 5 years for regular exercise
+    }
+    if (lifestyleHabits.includes('stress')) {
+      remainingYears -= 5; // Reduce by 5 years for high stress
+    }
+
+    // Adjust remaining lifespan based on mental health status
+    if (mentalHealth === 'anxiety' || mentalHealth === 'depression') {
+      remainingYears -= 10; // Reduce by 10 years for anxiety or depression
+    } else if (mentalHealth === 'other') {
+      remainingYears -= 5; // Reduce by 5 years for other mental health issues
+    }
+
+    // Adjust remaining lifespan based on sleep pattern
+    if (sleepPattern === 'insomnia') {
+      remainingYears -= 8; // Reduce by 8 years for insomnia
+    } else if (sleepPattern === 'other') {
+      remainingYears -= 4; // Reduce by 4 years for other sleep issues
+    }
+
+    // Adjust remaining lifespan based on environmental factors
+    if (environmentalFactors === 'pollution') {
+      remainingYears -= 7; // Reduce by 7 years for high pollution levels
+    } else if (environmentalFactors === 'air_quality') {
+      remainingYears += 5; // Increase by 5 years for good air quality
+    } else if (environmentalFactors === 'green_spaces') {
+      remainingYears += 3; // Increase by 3 years for access to green spaces
+    } else if (environmentalFactors === 'natural_disasters') {
+      remainingYears -= 10; // Reduce by 10 years for exposure to natural disasters
+    }
+
+    // Adjust remaining lifespan based on social relationships
+    if (socialRelationships === 'weak') {
+      remainingYears -= 5; // Reduce by 5 years for weak social relationships
+    } else if (socialRelationships === 'strong') {
+      remainingYears += 5; // Increase by 5 years for strong social relationships
+    }
+
+    // Adjust remaining lifespan based on access to healthcare
+    if (accessHealthcare === 'emergency_only') {
+      remainingYears -= 12; // Reduce by 12 years for emergency-only healthcare access
+    } else if (accessHealthcare === 'no_access') {
+      remainingYears -= 20; // Reduce by 20 years for no access to healthcare
+    } else if (accessHealthcare === 'regular_checkups') {
+      remainingYears += 5; // Increase by 5 years for regular check-ups
+    }
+
+    // Adjust remaining lifespan based on additional factors
+    if (dietType === 'keto') {
+      remainingYears += 5; // Increase by 5 years for keto diet
+    } else if (dietType === 'paleo') {
+      remainingYears += 3; // Increase by 3 years for paleo diet
+    } else if (dietType === 'mediterranean') {
+      remainingYears += 4; // Increase by 4 years for Mediterranean diet
+    } else if (dietType === 'low_carb') {
+      remainingYears += 2; // Increase by 2 years for low carb diet
+    } else if (dietType === 'low_fat') {
+      remainingYears += 1; // Increase by 1 year for low fat diet
+    }
+
+    if (alcoholConsumption === 'none') {
+      remainingYears += 3; // Increase by 3 years for no alcohol consumption
+    } else if (alcoholConsumption === 'occasional') {
+      remainingYears += 1; // Increase by 1 year for occasional alcohol consumption
+    } else if (alcoholConsumption === 'moderate') {
+      remainingYears -= 1; // Reduce by 1 year for moderate alcohol consumption
+    } else if (alcoholConsumption === 'heavy') {
+      remainingYears -= 3; // Reduce by 3 years for heavy alcohol consumption
+    }
+
+    if (hydrationLevel === 'low') {
+      remainingYears -= 2; // Reduce by 2 years for low hydration level
+    } else if (hydrationLevel === 'very_low') {
+      remainingYears -= 5; // Reduce by 5 years for very low hydration level
+    } else if (hydrationLevel === 'high') {
+      remainingYears += 1; // Increase by 1 year for high hydration level
+    } else if (hydrationLevel === 'very_high') {
+      remainingYears += 2; // Increase by 2 years for very high hydration level
+    }
+
+    if (sunExposure === 'low') {
+      remainingYears += 2; // Increase by 2 years for low sun exposure
+    } else if (sunExposure === 'moderate') {
+      remainingYears += 1; // Increase by 1 year for moderate sun exposure
+    } else if (sunExposure === 'high') {
+      remainingYears -= 2; // Reduce by 2 years for high sun exposure
+    }
+
+    if (screenTime === '0-1') {
+      remainingYears += 1; // Increase by 1 year for 0-1 hour screen time
+    } else if (screenTime === '1-2') {
+      remainingYears -= 1; // Reduce by 1 year for 1-2 hours screen time
+    } else if (screenTime === '2-4') {
+      remainingYears -= 3; // Reduce by 3 years for 2-4 hours screen time
+    } else if (screenTime === '4-6') {
+      remainingYears -= 5; // Reduce by 5 years for 4-6 hours screen time
+    } else if (screenTime === '6+') {
+      remainingYears -= 7; // Reduce by 7 years for 6+ hours screen time
+    }
+
+    if (exerciseFrequency === 'daily') {
+      remainingYears += 5; // Increase by 5 years for daily exercise
+    } else if (exerciseFrequency === 'weekly') {
+      remainingYears += 3; // Increase by 3 years for weekly exercise
+    } else if (exerciseFrequency === 'monthly') {
+      remainingYears += 1; // Increase by 1 year for monthly exercise
+    } else if (exerciseFrequency === 'occasionally') {
+      remainingYears -= 1; // Reduce by 1 year for occasional exercise
+    } else if (exerciseFrequency === 'rarely') {
+      remainingYears -= 3; // Reduce by 3 years for rarely exercise
+    } else if (exerciseFrequency === 'never') {
+      remainingYears -= 5; // Reduce by 5 years for never exercise
+    }
+
+    if (stressManagement === 'meditation') {
+      remainingYears += 2; // Increase by 2 years for meditation
+    } else if (stressManagement === 'yoga') {
+      remainingYears += 2; // Increase by 2 years for yoga
+    } else if (stressManagement === 'exercise') {
+      remainingYears += 1; // Increase by 1 year for exercise
+    } else if (stressManagement === 'therapy') {
+      remainingYears += 1; // Increase by 1 year for therapy
+    } else if (stressManagement === 'hobbies') {
+      remainingYears += 1; // Increase by 1 year for hobbies
+    } else if (stressManagement === 'none') {
+      remainingYears -= 2; // Reduce by 2 years for no stress management techniques
+    }
+
+    // Output the estimated lifespan
     var resultElement = document.getElementById("result");
     var selectedDataElement = document.getElementById("selectedData");
     var resultText;
     if (remainingYears <= 40 && remainingYears >= 1) {
-        resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
-        resultElement.innerHTML = resultText + '<p id="warningMessage" class="warning-message">I hope you’re taking care of yourself and staying safe!</p>';
+      resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
+      resultElement.innerHTML = resultText + '<p id="warningMessage" class="warning-message">I hope you’re taking care of yourself and staying safe!</p>';
     } else if (remainingYears <= 0) {
-        resultText = "You have already exceeded the estimated lifespan.";
-        resultElement.innerHTML = resultText;
+      resultText = "You have already exceeded the estimated lifespan.";
+      resultElement.innerHTML = resultText;
     } else if (remainingYears > 40) {
-        resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
-        resultElement.innerHTML = resultText;
+      resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + remainingYears + " years.";
+      resultElement.innerHTML = resultText;
     }
 
-    // Create a new <p> element for the estimated lifespan and append it to selected data info
+    // Show the result and selected data
+    resultElement.style.display = "block";
+    selectedDataElement.style.display = "block";
+    // Show the download options
+    document.getElementById("downloadOptions").style.display = "block";
+
+    // Scroll to the result
+    resultElement.scrollIntoView({ behavior: 'smooth' });
+
+    // Create a new <p> element for the estimated lifespan
     var estimatedLifespanElement = document.createElement("p");
     estimatedLifespanElement.innerHTML = "<strong>Estimated Lifespan:</strong> " + resultText;
-    selectedDataElement.appendChild(estimatedLifespanElement);
 
-    // Output selected data
-    selectedDataElement.innerHTML = "<h2>Selected Data</h2>" +
-        "<p><strong>Date of Birth:</strong> " + dobInput.value + "</p>" +
-        "<p><strong>Medical Condition:</strong> " + medicalCondition + "</p>" +
-        "<p><strong>Current Situation:</strong> " + currentSituation + "</p>" +
-        "<p><strong>Location:</strong> " + location + "</p>" +
-        "<p><strong>Lifestyle Habits:</strong> " + lifestyleHabits.join(", ") + "</p>" +
-        "<p><strong>Mental Health:</strong> " + mentalHealth + "</p>" +
-        "<p><strong>Sleep Pattern:</strong> " + sleepPattern + "</p>" +
-        "<p><strong>Environmental Factors:</strong> " + environmentalFactors + "</p>" +
-        "<p><strong>Social Relationships:</strong> " + socialRelationships + "</p>" +
-        "<p><strong>Access to Healthcare:</strong> " + accessHealthcare + "</p>";
+  // Output selected data
+var selectedDataContent =
+  "<h2>Selected Data</h2>" +
+  "<h3>Personal Information</h3>" +
+  "<p><strong>Name:</strong> " + name + "</p>" +
+  "<p><strong>Gender:</strong> " + gender + "</p>" +
+  "<p><strong>Date of Birth:</strong> " + dobInput.value + "</p>" +
+  "<p><strong>Mobile Number:</strong> " + mobile + "</p>" +
+  "<p><strong>Gmail:</strong> " + email + "</p>" +
+  "<p><strong>Selected Photo:</strong> <br><img src='" + photoUrl + "' width='200'></p>" + // Display photo
 
+  "<h3>Health Information</h3>" +
+  "<p><strong>Medical Condition:</strong> " + medicalCondition + "</p>" +
+  "<p><strong>Current Situation:</strong> " + currentSituation + "</p>" +
+
+  "<h3>Lifestyle</h3>" +
+  "<p><strong>Lifestyle Habits:</strong> " + lifestyleHabits.join(", ") + "</p>" +
+  "<p><strong>Mental Health:</strong> " + mentalHealth + "</p>" +
+  "<p><strong>Sleep Pattern:</strong> " + sleepPattern + "</p>" +
+  "<p><strong>Environmental Factors:</strong> " + environmentalFactors + "</p>" +
+  "<p><strong>Social Relationships:</strong> " + socialRelationships + "</p>" +
+  "<p><strong>Access to Healthcare:</strong> " + accessHealthcare + "</p>" +
+
+ "<h3>Bad Habits</h3>" +
+  "<p><strong>Alcohol Consumption:</strong> " + alcoholConsumption + "</p>" +
+"<p><strong>Screen Time:</strong> " + screenTime + "</p>" +
+
+  "<h3>Nutrition</h3>" +
+  "<p><strong>Diet Type:</strong> " + dietType + "</p>" +
+
+  "<h3>Physical Activity</h3>" +
+  "<p><strong>Sun Exposure:</strong> " + sunExposure + "</p>" +
+  "<p><strong>Exercise Frequency:</strong> " + exerciseFrequency + "</p>" +
+  "<p><strong>Hydration Level:</strong> " + hydrationLevel + "</p>" +
+  "<h3>Stress Management</h3>" +
+  "<p><strong>Stress Management:</strong> " + stressManagement + "</p>";
+
+// Append the estimated lifespan element and selected data content to the selected data info
+selectedDataElement.innerHTML = estimatedLifespanElement.outerHTML + selectedDataContent;
+}
+// Function to handle photo selection
+function handlePhotoSelection(event) {
+    var photoInput = event.target;
+    var selectedPhoto = document.getElementById("previewPhoto");
+
+    var photoFile = photoInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function () {
+        selectedPhoto.src = reader.result;
+        selectedPhoto.style.display = "block";
+    };
+
+    if (photoFile) {
+        reader.readAsDataURL(photoFile);
+    }
 }
 
-    // Function to show estimation options based on radio button selection
-    function showEstimationOptions() {
-      var userEstimationInput = document.getElementById("userEstimationInput");
-      var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
-      var estimationType = document.querySelector('input[name="estimation_type"]:checked').value;
+// Attach an event listener to the photo input field
+document.getElementById("photo").addEventListener("change", handlePhotoSelection);
 
-      if (estimationType === "user") {
-        userEstimationInput.style.display = "block";
-        userEstimatedLifespanInput.required = true;
-      } else {
-        userEstimationInput.style.display = "none";
-        userEstimatedLifespanInput.required = false;
-      }
+  function validateName(name) {
+            // Add your name validation logic here
+            return name.trim() !== "";
+        }
+
+        function validateMobile(mobile) {
+            // Add your mobile number validation logic here
+            return /^[0-9]{10}$/.test(mobile);
+        }
+
+        function validateEmail(email) {
+            // Add your email validation logic here
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+  // Function to show estimation options based on radio button selection
+  function showEstimationOptions() {
+    var userEstimationInput = document.getElementById("userEstimationInput");
+    var userEstimatedLifespanInput = document.getElementById("user_estimated_lifespan");
+    var estimationType = document.querySelector('input[name="estimation_type"]:checked').value;
+
+    if (estimationType === "user") {
+      userEstimationInput.style.display = "block";
+      userEstimatedLifespanInput.required = true;
+    } else {
+      userEstimationInput.style.display = "none";
+      userEstimatedLifespanInput.required = false;
     }
-// Function to download results as PDF
+  }
+
+  // Function to download results as PDF
 function downloadResultsAsPDF() {
-  var resultText = document.getElementById("result").innerText;
-  var selectedDataText = document.getElementById("selectedData").innerText;
+    var resultText = document.getElementById("result").innerText;
+    var selectedDataText = document.getElementById("selectedData").innerText;
 
-  var pdfContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+    var pdfContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
 
-  // Create a Blob containing the PDF content
-  var blob = new Blob([pdfContent], { type: "application/pdf;charset=utf-8" });
+    // Create a Blob containing the PDF content
+    var blob = new Blob([pdfContent], { type: "application/pdf;charset=utf-8" });
 
-  // Create a URL for the Blob
-  var url = window.URL.createObjectURL(blob);
+    // Create a URL for the Blob
+    var url = window.URL.createObjectURL(blob);
 
-  // Create an anchor element
-  var a = document.createElement("a");
+    // Create an anchor element
+    var a = document.createElement("a");
 
-  // Set the download attribute and href attribute
-  a.download = "lifespan_estimation_result.pdf";
-  a.href = url;
+    // Set the download attribute and href attribute
+    a.download = "lifespan_estimation_result.pdf";
+    a.href = url;
 
-  // Programmatically click on the anchor element to trigger the download
-  a.click();
+    // Programmatically click on the anchor element to trigger the download
+    document.body.appendChild(a); // Append the anchor to the body
+    a.click();
 
-  // Release the Blob URL after it's no longer needed
-  window.URL.revokeObjectURL(url);
+    // Remove the anchor from the body
+    document.body.removeChild(a);
+
+    // Release the Blob URL after it's no longer needed
+    window.URL.revokeObjectURL(url);
 }
 
 // Function to download results as Word
 function downloadResultsAsWord() {
-  var resultText = document.getElementById("result").innerText;
-  var selectedDataText = document.getElementById("selectedData").innerText;
+    var resultText = document.getElementById("result").innerText;
+    var selectedDataText = document.getElementById("selectedData").innerText;
 
-  var wordContent = "\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+    var wordContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
 
-var wordContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+    // Create a Blob containing the Word content
+    var blob = new Blob([wordContent], { type: "application/msword;charset=utf-8" });
 
-  // Create a Blob containing the Word content
-  var blob = new Blob([wordContent], { type: "text/plain;charset=utf-8" });
+    // Create a URL for the Blob
+    var url = window.URL.createObjectURL(blob);
 
-  // Create a URL for the Blob
-  var url = window.URL.createObjectURL(blob);
+    // Create an anchor element
+    var a = document.createElement("a");
 
-  // Create an anchor element
-  var a = document.createElement("a");
+    // Set the download attribute and href attribute
+    a.download = "lifespan_estimation_result.doc";
+    a.href = url;
 
-  // Set the download attribute and href attribute
-  a.download = "lifespan_estimation_result.doc";
-  a.href = url;
+    // Programmatically click on the anchor element to trigger the download
+    document.body.appendChild(a); // Append the anchor to the body
+    a.click();
 
-  // Programmatically click on the anchor element to trigger the download
-  a.click();
+    // Remove the anchor from the body
+    document.body.removeChild(a);
 
-  // Release the Blob URL after it's no longer needed
-  window.URL.revokeObjectURL(url);
+    // Release the Blob URL after it's no longer needed
+    window.URL.revokeObjectURL(url);
 }
 
-  </script>
+// Function to download results as Text
+function downloadResultsAsText() {
+    var resultText = document.getElementById("result").innerText;
+    var selectedDataText = document.getElementById("selectedData").innerText;
 
+    var textContent = "Lifespan Estimation Result\n\n" + resultText + "\n\nSelected Data\n\n" + selectedDataText;
+
+    // Create a Blob containing the Text content
+    var blob = new Blob([textContent], { type: "text/plain;charset=utf-8" });
+
+    // Create a URL for the Blob
+    var url = window.URL.createObjectURL(blob);
+
+    // Create an anchor element
+    var a = document.createElement("a");
+
+    // Set the download attribute and href attribute
+    a.download = "lifespan_estimation_result.txt";
+    a.href = url;
+
+    // Programmatically click on the anchor element to trigger the download
+    document.body.appendChild(a); // Append the anchor to the body
+    a.click();
+
+    // Remove the anchor from the body
+    document.body.removeChild(a);
+
+    // Release the Blob URL after it's no longer needed
+    window.URL.revokeObjectURL(url);
+}
+
+
+  // Function to send details to email
+  function sendDetailsByEmail() {
+    var resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + document.getElementById("result").textContent.trim();
+    var selectedDataText = "Selected Data\n";
+    var selectedDataElements = document.getElementById("selectedData").getElementsByTagName("p");
+
+    // Loop through each selected data element and construct the text
+    for (var i = 0; i < selectedDataElements.length; i++) {
+      selectedDataText += selectedDataElements[i].textContent.trim() + "\n";
+    }
+
+    var subject = "Lifespan Estimation Result";
+    var body = resultText + "\n\n" + selectedDataText;
+
+    var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+    // Open user's default email client
+    window.location.href = mailtoLink;
+  }
+
+// Function to send details via WhatsApp
+function sendToSavedContact() {
+    // Get the phone number of the saved contact
+    var phoneNumber = ""; // Replace this with the phone number of the saved contact
+
+    // Selected data to send
+    var selectedData = document.getElementById("selectedData").innerText;
+
+    // Construct the WhatsApp URL with the phone number and selected data
+    var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(selectedData);
+
+    // Open WhatsApp with the pre-filled message
+    window.open(whatsappURL);
+}
+
+// Function to send details to a new contact in WhatsApp
+function sendToNewContact() {
+    // Prompt the user to enter the phone number
+    var newPhoneNumber = prompt("Enter the phone number:");
+
+    if (newPhoneNumber) {
+        // Construct the WhatsApp URL
+        var message = "Your message goes here";
+        var whatsappURL = "https://wa.me/" + newPhoneNumber + "?text=" + encodeURIComponent(message);
+
+        // Open WhatsApp with the pre-filled message
+        window.open(whatsappURL);
+    }
+}
+
+// Function to send via Instagram
+function sendViaInstagram() {
+    // Construct Instagram message
+    var resultText = "Based on your current age and selected conditions, your remaining estimated lifespan is approximately " + document.getElementById("result").textContent.trim();
+    var selectedDataText = "Selected Data\n";
+    var selectedDataElements = document.getElementById("selectedData").getElementsByTagName("p");
+    for (var i = 0; i < selectedDataElements.length; i++) {
+        selectedDataText += selectedDataElements[i].textContent.trim() + "\n";
+    }
+    var instagramMessage = encodeURIComponent(resultText + "\n\n" + selectedDataText);
+
+    // Open Instagram with pre-filled message
+    window.location.href = "https://www.instagram.com/direct/new/?text=" + instagramMessage;
+}
+
+// Function to copy text
+function copyText() {
+    var resultText = document.getElementById("result").innerText;
+    var selectedDataText = document.getElementById("selectedData").innerText;
+    var textToCopy = resultText + "\n\n" + selectedDataText;
+
+    // Create a temporary textarea element
+    var textarea = document.createElement("textarea");
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+
+    // Select and copy the text from the textarea
+    textarea.select();
+    document.execCommand("copy");
+
+    // Remove the textarea from the DOM
+    document.body.removeChild(textarea);
+
+    // Inform the user that the text has been copied
+    alert("Text copied to clipboard!");
+}
+// Function to guide users on taking a screenshot
+function takeScreenshot() {
+    alert("To take a screenshot:\n\n1. On Windows: Press the 'PrtScn' or 'Print Screen' key. It may be labeled differently depending on your keyboard.\n\n2. On Mac: Press 'Command (⌘) + Shift + 4' to capture a selected area or 'Command (⌘) + Shift + 3' to capture the entire screen.\n\n3. On Mobile: Press the 'Power' and 'Volume Down' buttons simultaneously.");
+}
+// Simulate loading delay
+setTimeout(() => {
+  // Hide loading animation
+  document.getElementById('loading-container').style.display = 'none';
+  // Show main content
+  document.getElementById('main-content').style.display = 'block';
+}, 2000); // Adjust the delay time as needed (in milliseconds)
+
+
+</script>
 </body>
 </html>
